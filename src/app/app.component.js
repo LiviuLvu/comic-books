@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <my-wiki></my-wiki>\n    <my-wiki-smart></my-wiki-smart>\n  "
+        template: "\n    <my-wiki></my-wiki>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
