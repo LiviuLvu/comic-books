@@ -13,7 +13,6 @@ var http_1 = require("@angular/http");
 var default_request_options_service_1 = require("./default-request-options.service");
 var app_component_1 = require("./app.component");
 var wiki_component_1 = require("./wiki/wiki.component");
-var wiki_smart_component_1 = require("./wiki/wiki-smart.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,8 +28,7 @@ AppModule = __decorate([
         ],
         declarations: [
             app_component_1.AppComponent,
-            wiki_component_1.WikiComponent,
-            wiki_smart_component_1.WikiSmartComponent
+            wiki_component_1.WikiComponent
         ],
         providers: [default_request_options_service_1.requestOptionsProvider],
         bootstrap: [app_component_1.AppComponent]

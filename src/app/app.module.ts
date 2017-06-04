@@ -8,7 +8,6 @@ import { requestOptionsProvider }   from './default-request-options.service';
 import { AppComponent }             from './app.component';
 
 import { WikiComponent }      from './wiki/wiki.component';
-import { WikiSmartComponent } from './wiki/wiki-smart.component';
 
 @NgModule({
   imports: [
@@ -19,8 +18,7 @@ import { WikiSmartComponent } from './wiki/wiki-smart.component';
   ],
   declarations: [
     AppComponent,
-    WikiComponent,
-    WikiSmartComponent
+    WikiComponent
   ],
   providers: [ requestOptionsProvider ],
   bootstrap: [ AppComponent ]

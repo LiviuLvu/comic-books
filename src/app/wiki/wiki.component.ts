@@ -1,25 +1,37 @@
-import { Component }        from '@angular/core';
-import { Observable }       from 'rxjs/Observable';
+import { Component, OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/switchMap';
+import { Subject } from 'rxjs/Subject';
 
 import { WikipediaService } from './wikipedia.service';
 
 @Component({
   selector: 'my-wiki',
   template: `
-    <h1>Wikipedia Demo</h1>
-    <p>Search after each keystroke</p>
+    <h1>Comic Books Search</h1>
+    <p>Search for your favourite comic books on MARVEL</p>
     <input #term (keyup)="search(term.value)"/>
     <ul>
       <li *ngFor="let item of items | async">{{item}}</li>
     </ul>`,
-  providers: [ WikipediaService ]
+  providers: [WikipediaService]
 })
-export class WikiComponent {
+
+export class WikiComponent implements OnInit {
   items: Observable<string[]>;
 
-  constructor (private wikipediaService: WikipediaService) { }
+  constructor(private wikipediaService: WikipediaService) { }
 
-  search (term: string) {
-    this.items = this.wikipediaService.search(term);
+  private searchTermStream = new Subject<string>();
+  search(term: string) { this.searchTermStream.next(term); }
+
+  ngOnInit() {
+    this.items = this.searchTermStream
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .switchMap((term: string) => this.wikipediaService.search(term));
   }
 }

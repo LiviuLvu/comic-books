@@ -10,20 +10,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+require("rxjs/add/operator/debounceTime");
+require("rxjs/add/operator/distinctUntilChanged");
+require("rxjs/add/operator/switchMap");
+var Subject_1 = require("rxjs/Subject");
 var wikipedia_service_1 = require("./wikipedia.service");
 var WikiComponent = (function () {
     function WikiComponent(wikipediaService) {
         this.wikipediaService = wikipediaService;
+        this.searchTermStream = new Subject_1.Subject();
     }
-    WikiComponent.prototype.search = function (term) {
-        this.items = this.wikipediaService.search(term);
+    WikiComponent.prototype.search = function (term) { this.searchTermStream.next(term); };
+    WikiComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.items = this.searchTermStream
+            .debounceTime(300)
+            .distinctUntilChanged()
+            .switchMap(function (term) { return _this.wikipediaService.search(term); });
     };
     return WikiComponent;
 }());
 WikiComponent = __decorate([
     core_1.Component({
         selector: 'my-wiki',
-        template: "\n    <h1>Wikipedia Demo</h1>\n    <p>Search after each keystroke</p>\n    <input #term (keyup)=\"search(term.value)\"/>\n    <ul>\n      <li *ngFor=\"let item of items | async\">{{item}}</li>\n    </ul>",
+        template: "\n    <h1>Comic Books Search</h1>\n    <p>Search for your favourite comic books on MARVEL</p>\n    <input #term (keyup)=\"search(term.value)\"/>\n    <ul>\n      <li *ngFor=\"let item of items | async\">{{item}}</li>\n    </ul>",
         providers: [wikipedia_service_1.WikipediaService]
     }),
     __metadata("design:paramtypes", [wikipedia_service_1.WikipediaService])
