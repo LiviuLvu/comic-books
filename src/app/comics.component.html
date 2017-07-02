@@ -1,0 +1,9 @@
+<h1>Comic Books Search</h1>
+<p>Search for your favourite comic books on MARVEL</p>
+<input #term (keyup)="search(term.value)" placeholder="Search for a hero" />
+<ul>
+  <li *ngFor="let item of items | async">
+    <h4>{{item.title}}</h4>
+    <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">
+  </li>
+</ul>
