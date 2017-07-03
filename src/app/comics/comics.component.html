@@ -1,10 +1,25 @@
-<input #term (keyup)="search(term.value)" placeholder="Search for your favourite comic books" />
-<ul>
-  <li *ngFor="let item of items | async">
-    <h4>{{item.title}}</h4>
-    <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
-    <img src="{{item.thumbnail}}" alt="Thumbnail Image">
-  </li>
-</ul>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-centered">
 
-<a href="https://github.com/LiviuLvu/comic-books">View source code on Github</a>
+    <div class="input-group">
+      <input type="text" class="form-control" #term (keyup)="search(term.value)" placeholder="Search for your favourite comic books" />
+      <span class="input-group-addon" id="basic-addon2">Search</span>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of items | async">
+
+        <div class="media">
+          <img class="thumb-nail" src="{{item.thumbnail}}" alt="Thumbnail Image">
+          <div class="media-body">
+            <h4>{{item.title}}</h4>
+          </div>
+        </div>
+        <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
+      </li>
+    </ul>
+
+    <a href="https://github.com/LiviuLvu/comic-books">View source code on Github</a>
+
+  </div>
+</div>
