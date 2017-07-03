@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { requestOptionsProvider } from './default-request-options.service';
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
 
 import { AppComponent } from './app.component';
-
-import { ComicsComponent } from './comics.component';
+import { ComicsComponent } from './comics/comics.component';
+import { HeroData } from "./hero-data";
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    InMemoryWebApiModule.forRoot(HeroData, {delay: 1000})
   ],
   declarations: [
     AppComponent,

@@ -6,14 +6,14 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { Subject } from 'rxjs/Subject';
 
-import { ComicsService } from './comics.service';
+import { Hero } from './hero';
+import { ComicsService } from '../comics.service';
 
 @Component({
   selector: 'my-comics',
   templateUrl: './comics.component.html',
   providers: [ComicsService]
 })
-
 export class ComicsComponent implements OnInit {
   items: Observable<string[]>;
   

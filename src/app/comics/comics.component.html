@@ -1,0 +1,10 @@
+<input #term (keyup)="search(term.value)" placeholder="Search for your favourite comic books" />
+<ul>
+  <li *ngFor="let item of items | async">
+    <h4>{{item.title}}</h4>
+    <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
+    <img src="{{item.thumbnail}}" alt="Thumbnail Image">
+  </li>
+</ul>
+
+<a href="https://github.com/LiviuLvu/comic-books">View source code on Github</a>

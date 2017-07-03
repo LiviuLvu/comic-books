@@ -9,8 +9,8 @@ You can search and display data using API provided by MARVEL.
 ## To Do:
 * Spinner loader / please wait, loading data message
 * Show instructional message when no data is displayed in list
-* Implement details preview
-* Write unit tests
+* Details preview when list element is clicked
+* Write tests
 
 ***  
 
