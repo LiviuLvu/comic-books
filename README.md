@@ -2,9 +2,11 @@
 
 ## *Work in progress*  
 
+You can search and display data using API provided by MARVEL.  
 This is a learning project for using Angular  
 Dependencies are managed with Yarn  
-You can search and display data using API provided by MARVEL.  
+
+[Live preview link](https://liviulvu.github.io/comic-books/)
 
 ## To Do:
 * Large preview when list element is clicked
