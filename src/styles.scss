@@ -3,15 +3,20 @@
 @import '../node_modules/bootstrap/scss/bootstrap';
 
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   padding-left: 8px;
   padding-right: 8px;
-  background-color: #eee;
+  background-color: #000;
 }
 
-*:not(.input-group-addon) {
-  margin-bottom: 4px;
+.header {
+  margin-bottom: 16px;
+  height: 206px;
+  background-image: url("./assets/header.jpg");
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .col-centered{
@@ -19,8 +24,24 @@ body {
     margin: 0 auto;
 }
 
-.thumb-nail {
+.image-container {
   width: 100px;
-  height: 100%;
-  margin-right: 10px;
+  height: 100px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.thumb-nail {
+  width: 100%;
+  margin: auto;
+}
+
+li.list-group-item:hover,
+a.list-group-item:focus, 
+a.list-group-item:hover, 
+button.list-group-item:focus, 
+button.list-group-item:hover, {
+    color: #555;
+    text-decoration: none;
+    background-color: #f5f5f5;
 }

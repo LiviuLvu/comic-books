@@ -16,7 +16,7 @@ import { HeroData } from "./hero-data";
     FormsModule,
     HttpModule,
     JsonpModule,
-    InMemoryWebApiModule.forRoot(HeroData, {delay: 1000})
+    InMemoryWebApiModule.forRoot(HeroData, {delay: 100})
   ],
   declarations: [
     AppComponent,
