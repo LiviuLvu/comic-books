@@ -1,44 +1,51 @@
-<div class="row">
-  <div class="col-lg-5 col-md-7 col-centered">
-    <div class="header"></div>
-    <div class="input-group">
-      <input type="text" class="form-control" #term (keyup)="search(term.value)" placeholder="Search comic books on Marvel" autofocus />
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">Search</button>
-      </span>
-    </div>
+<div class="main">
+  <div class="header"></div>
+  <div class="input-group">
+    <input type="text" class="form-control" #term 
+      (keyup)="search(term.value)" 
+      placeholder="Search comic books on Marvel" 
+      autofocus />
+    <span class="input-group-btn">
+      <button class="btn btn-primary" type="button">Search</button>
+    </span>
   </div>
-</div>
 
-<br>
+  <br>
+  <ul class="list-unstyled">
+    <li class="list-group-item"
+      [ngSwitch]="switch_exp"
+      (click)="stateChange(i)"
+      [@container]="switch_exp"
+      (@container.done)="fadeContent(i)"
+      *ngFor="let item of items | async; index as i">
 
-<div class="row">
-  <div class="col-lg-5 col-md-7 col-centered">
-    <ul class="list-unstyled">
-      <li class="list-group-item media my-1" *ngFor="let item of items | async">
-
-        <div class="image-container d-flex align-self-center mr-3 text-right">
+      <div class="media" *ngSwitchDefault>
+        <div class="image-container d-flex mr-3">
           <img class="thumb-nail" src="{{item.thumbnail}}" alt="Thumbnail Image">
           <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
         </div>
 
-        <div class="media-body text-left">
-          <div class="row">
-
-            <div class="col col-10">
-              <h6>{{item.title}}</h6>
-              <a href="">Details and links</a>
-            </div>
-            <div class="col col-2">
-              <i class="fa fa-chevron-right fa-lg my-3" aria-hidden="true"></i>
-            </div>
-
+        <div class="media-body" [@enterTrigger]="triggerState">
+          <div>
+            <h6>{{item.title}}</h6>
+            <div class="btn btn-link text-left">View Details</div>
+          </div>
+          <div>
+            <i class="fa fa-chevron-right fa-lg my-3"></i>
           </div>
         </div>
+      </div>
+      <!-- detail -->
+      <div *ngSwitchCase="i" [@enterTrigger]="triggerState">
+        <h2>{{item.title}}</h2>
+        <img src="{{item.thumbnail}}" class="large-view" alt="Thumbnail Image">
+        <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
 
-      </li>
-    </ul>
-  </div>
+        <i class="fa fa-chevron-left fa-lg my-3"></i>
+      </div>
+
+    </li>
+  </ul>
 </div>
 
 <footer class="footer text-center">
