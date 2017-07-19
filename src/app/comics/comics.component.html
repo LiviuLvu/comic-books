@@ -16,6 +16,7 @@
       [ngSwitch]="switch_exp"
       [@container]="switch_exp"
       (@container.done)="fadeContent(i)"
+      (click)="disableScroll()"
       *ngFor="let item of items | async; index as i">
 
       <div class="media" *ngSwitchDefault
@@ -36,17 +37,19 @@
         </div>
       </div>
       <!-- detail -->
-      <div *ngSwitchCase="i" [@enterTrigger]="triggerState">
-        <h6 (click)="hideDetail()">
+      <div class="modal-custom" *ngSwitchCase="i" [@enterTrigger]="triggerState">
+        <h6 (click)="hideDetail()" (click)="disableScroll()">
           <i class="fa fa-times"></i>
           Close
         </h6>
-        <h2 class="text-center">{{item.title}}</h2>
         <img src="{{item.thumbnail}}" class="large-view" alt="Thumbnail Image">
-        <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
+        <h2 class="text-center">{{item.title}}</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta doloribus culpa necessitatibus atque animi alias, officiis deserunt fugit quis deleniti, voluptatum quo mollitia reprehenderit eum quos non corrupti quasi architecto?
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita pariatur iste vero, earum nihil, a, deserunt dolor, amet eligendi at voluptate accusamus vel esse similique tempore aspernatur iusto commodi molestiae.</p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita pariatur iste vero, earum nihil, a, deserunt dolor, amet eligendi at voluptate accusamus vel esse similique tempore aspernatur iusto commodi molestiae.
+        </p>
       </div>
+
+
 
     </li>
   </ul>

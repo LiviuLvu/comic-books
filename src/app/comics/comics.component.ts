@@ -28,11 +28,11 @@ import { ComicsService } from '../comics.service';
       // })),
       transition(':enter', [
         style({ transform: 'translateX(100%)', opacity: 0 }),
-        animate('150ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
+        animate('200ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
       ]),
       transition(':leave', [
         style({ transform: 'translateX(0)' }),
-        animate('150ms ease-in', style({ transform: 'translateX(-100%)' })),
+        animate('100ms ease-in', style({ transform: 'translateX(-100%)' })),
       ])
     ]),
   ],
@@ -61,11 +61,13 @@ export class ComicsComponent implements OnInit {
   // aimation functions
   stateChange = (i) => {
     this.switch_exp = i;
+    window.document.body.classList.toggle('no-scroll');
   }
   fadeContent = (i) => {
     this.triggerState = i;
   }
   hideDetail = () => {
     this.switch_exp = 'x';
+    window.document.body.classList.toggle('no-scroll');
   }
 }
