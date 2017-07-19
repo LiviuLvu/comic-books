@@ -28,11 +28,11 @@ import { ComicsService } from '../comics.service';
       // })),
       transition(':enter', [
         style({ transform: 'translateX(100%)', opacity: 0 }),
-        animate('200ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
+        animate('150ms ease-out', style({ transform: 'translateX(0)', opacity: 1 })),
       ]),
       transition(':leave', [
         style({ transform: 'translateX(0)' }),
-        animate('100ms ease-in', style({ transform: 'translateX(-100%)' })),
+        animate('50ms ease-in', style({ transform: 'translateX(-100%)' })),
       ])
     ]),
   ],

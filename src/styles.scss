@@ -20,7 +20,7 @@ body {
 }
 
 .main {
-  max-width: 640px;
+  max-width: 700px;
   margin: auto;
 }
 
@@ -32,7 +32,7 @@ body {
 .image-container {
   width: 100px;
   height: 100px;
-  margin: 6px;
+  margin: 6px 0px;
   overflow: hidden;
   background-color: black;
 }
@@ -76,23 +76,22 @@ li.list-group-item .modal-custom {
   z-index: 10;
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding-top: 30px;
   overflow-y: auto;
   top: 0;
   left: 0;
   background-color: #fff;
 }
 
-@media screen and (min-width: 1100px) {
-  li.list-group-item .modal-custom {
-    max-width: 60%;
-    margin-left: 20%;
-    padding: 20px 60px;
+@media screen and (min-width: 740px) {
+  .modal-description {
+    max-width: 700px;
+    margin: auto;
   }
 }
 
 .modal-custom > * {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .btn.btn-link {
@@ -101,4 +100,12 @@ li.list-group-item .modal-custom {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.media {
+  align-items: center;
+}
+
+.background {
+  background-color: lightgray;
 }

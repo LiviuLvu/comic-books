@@ -21,32 +21,39 @@
 
       <div class="media" *ngSwitchDefault
         (click)="stateChange(i)">
-        <div class="image-container d-flex mr-3">
+        <div class="image-container d-flex align-self-center mr-3">
           <img class="thumb-nail" src="{{item.thumbnail}}" alt="Thumbnail Image">
           <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
         </div>
 
         <div class="media-body" [@enterTrigger]="triggerState">
-          <div>
-            <h6>{{item.title}}</h6>
-            <div class="btn btn-link text-left">#{{i + 1}} View Details</div>
-          </div>
-          <div>
-            <i class="fa fa-chevron-right fa-lg my-3"></i>
-          </div>
+          <div class="btn btn-link">#{{i + 1}}</div>
+          <h5>{{item.title}}</h5>
+          <h6 class="btn btn-link">View Details</h6>
+        </div>
+        <div>
+          <i class="fa fa-chevron-right fa-lg"></i>
         </div>
       </div>
       <!-- detail -->
       <div class="modal-custom" *ngSwitchCase="i" [@enterTrigger]="triggerState">
-        <h6 (click)="hideDetail()" (click)="disableScroll()">
-          <i class="fa fa-times"></i>
-          Close
+        <h6 class="text-center" (click)="hideDetail()" (click)="disableScroll()">
+          <i class="fa fa-chevron-left"></i>
+          Back
         </h6>
-        <img src="{{item.thumbnail}}" class="large-view" alt="Thumbnail Image">
-        <h2 class="text-center">{{item.title}}</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta doloribus culpa necessitatibus atque animi alias, officiis deserunt fugit quis deleniti, voluptatum quo mollitia reprehenderit eum quos non corrupti quasi architecto?
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita pariatur iste vero, earum nihil, a, deserunt dolor, amet eligendi at voluptate accusamus vel esse similique tempore aspernatur iusto commodi molestiae.
-        </p>
+        <div class="background">
+          <img src="{{item.thumbnail}}" class="large-view" alt="Thumbnail Image">
+        </div>
+        <div class="modal-description">
+          <h2 class="text-center">{{item.title}}</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta doloribus culpa necessitatibus atque animi alias, officiis deserunt fugit quis deleniti, voluptatum quo mollitia reprehenderit eum quos non corrupti quasi architecto?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita pariatur iste vero, earum nihil, a, deserunt dolor, amet eligendi at voluptate accusamus vel esse similique tempore aspernatur iusto commodi molestiae.
+          </p>
+          <h6 (click)="hideDetail()" (click)="disableScroll()">
+            <i class="fa fa-times"></i>
+            Close
+          </h6>
+        </div>
       </div>
 
 
