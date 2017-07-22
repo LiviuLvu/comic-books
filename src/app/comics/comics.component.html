@@ -1,7 +1,8 @@
 <div class="main">
   <div class="header"></div>
   <div class="input-group">
-    <input type="text" class="form-control" #term
+    <input class="form-control" 
+      #term
       (keyup)="search(term.value)"
       placeholder="Search comic books. ex: hulk, spider man, x-men"
       autofocus />
@@ -28,8 +29,8 @@
       <div class="media" *ngSwitchDefault
         (click)="stateChange(i)">
         <div class="image-container d-flex align-self-center mr-3">
-          <img class="thumb-nail" src="{{item.thumbnail}}" alt="Thumbnail Image">
-          <!--<img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">-->
+          <!-- <img class="thumb-nail" src="{{item.thumbnail}}" alt="Thumbnail Image"> -->
+          <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">
         </div>
 
         <div class="media-body" [@enterTrigger]="triggerState">

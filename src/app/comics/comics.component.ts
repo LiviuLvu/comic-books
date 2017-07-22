@@ -7,8 +7,11 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import { Subject } from 'rxjs/Subject';
 
-import { Hero } from './hero';
+// for mock-data
+// import { Hero } from './hero';
+
 import { ComicsService } from '../comics.service';
+
 
 @Component({
   selector: 'my-comics',
@@ -40,6 +43,7 @@ import { ComicsService } from '../comics.service';
 })
 export class ComicsComponent implements OnInit {
   items: Observable<string[]>;
+  
   // animation variables
   switch_exp: string;
   triggerState: string;
@@ -59,8 +63,10 @@ export class ComicsComponent implements OnInit {
       .debounceTime(300)
       .distinctUntilChanged()
       .switchMap((term: string) => this.comicsService.search(term));
+
     this.items.subscribe( () => this.loading = false );
   }
+
   // aimation functions
   stateChange = (i) => {
     this.switch_exp = i;

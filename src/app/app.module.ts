@@ -5,11 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { requestOptionsProvider } from './default-request-options.service';
-import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+// import { InMemoryWebApiModule } from "angular-in-memory-web-api";
 
 import { AppComponent } from './app.component';
 import { ComicsComponent } from './comics/comics.component';
-import { HeroData } from "./hero-data";
+// import { HeroData } from "./hero-data";
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { HeroData } from "./hero-data";
     FormsModule,
     HttpModule,
     JsonpModule,
-    InMemoryWebApiModule.forRoot(HeroData, {delay: 1000}),
+    // InMemoryWebApiModule.forRoot(HeroData, {delay: 1000}),
   ],
   declarations: [
     AppComponent,
