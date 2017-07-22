@@ -9,6 +9,13 @@ body {
   background-color: #000;
 }
 
+footer {
+  color: #888;
+  p {
+    margin-bottom: .3rem;
+  }
+}
+
 .header {
   margin-bottom: 16px;
   height: 206px;
@@ -89,20 +96,23 @@ li.list-group-item .modal-custom {
   color: #555;
 }
 
-@media screen and (min-width: 740px) {
-  .modal-description {
-    max-width: 700px;
-    margin: auto;
-  }
-}
-
 .modal-custom > *:not(:first-child) {
   margin-bottom: 20px;
 }
 
 .modal-description {
+  * {
+    padding-bottom: 20px;
+  }
   padding-left: 20px;
   padding-right: 20px;
+}
+
+@media screen and (min-width: 740px) {
+  .modal-description {
+    max-width: 700px;
+    margin: auto;
+  }
 }
 
 .btn.btn-link {

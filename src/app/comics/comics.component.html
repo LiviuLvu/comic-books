@@ -4,7 +4,7 @@
     <input class="form-control" 
       #term
       (keyup)="search(term.value)"
-      placeholder="Search comic books. ex: hulk, spider man, x-men"
+      placeholder="Search comic books. ex: hulk, spider-man, x-men"
       autofocus />
     <span class="input-group-btn">
       <button class="btn btn-primary" type="button" (click)="search(term.value)">Search</button>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="media-body" [@enterTrigger]="triggerState">
-          <p>#{{ i < 9 ? '0' : '' }}{{ i + 1 }}</p>
+          <p>Search result #{{ i < 9 ? '0' : '' }}{{ i + 1 }}</p>
           <h5>{{item.title}}</h5>
           <h6 class="btn btn-link">View Details</h6>
         </div>
@@ -50,14 +50,18 @@
           Back
         </h6>
         </div>
-        <div class="background">
-          <img src="{{item.thumbnail}}" class="large-view" alt="Thumbnail Image">
+        <div class="background text-center">
+          <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="Thumbnail Image">
         </div>
         <div class="modal-description">
-          <h2 class="text-center">{{item.title}}</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta doloribus culpa necessitatibus atque animi alias, officiis deserunt fugit quis deleniti, voluptatum quo mollitia reprehenderit eum quos non corrupti quasi architecto?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita pariatur iste vero, earum nihil, a, deserunt dolor, amet eligendi at voluptate accusamus vel esse similique tempore aspernatur iusto commodi molestiae.
-          </p>
+          <h2>{{item.title}}</h2>
+          <p>{{item.description}}</p>
+          <h6>{{ item.issueNumber ? 'Issue number: ' + item.issueNumber : null}}</h6>
+          <h6>Last update: {{ item.modified | date }}</h6>
+          <h6>Page count: {{item.pageCount}}</h6>
+          
+          <h6>View more on <a href="{{ (item.urls[0].url) ? item.urls[0].url : marvel.com }}" target="_blank">Marvel</a> website</h6>
+
           <h6 class="btn btn-link" (click)="hideDetail()" (click)="disableScroll()">
             <i class="fa fa-times"></i>
             Close
@@ -70,7 +74,3 @@
     </li>
   </ul>
 </div>
-
-<footer class="footer text-center">
-  <a href="https://github.com/LiviuLvu/comic-books">View source code on Github</a>
-</footer>
