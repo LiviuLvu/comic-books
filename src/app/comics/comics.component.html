@@ -1,16 +1,22 @@
 <div class="main">
   <div class="header"></div>
   <div class="input-group">
-    <input type="text" class="form-control" #term 
-      (keyup)="search(term.value)" 
-      placeholder="Search comic books on Marvel" 
+    <input type="text" class="form-control" #term
+      (keyup)="search(term.value)"
+      placeholder="Search comic books. ex: hulk, spider man, x-men"
       autofocus />
     <span class="input-group-btn">
-      <button class="btn btn-primary" type="button">Search</button>
+      <button class="btn btn-primary" type="button" (click)="search(term.value)">Search</button>
     </span>
   </div>
 
   <br>
+  <div class="spinner" *ngIf="loading">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+
   <ul class="list-unstyled">
     <li class="list-group-item"
       [ngSwitch]="switch_exp"
@@ -27,7 +33,7 @@
         </div>
 
         <div class="media-body" [@enterTrigger]="triggerState">
-          <h6>#{{i + 1}}</h6>
+          <p>#{{ i < 9 ? '0' : '' }}{{ i + 1 }}</p>
           <h5>{{item.title}}</h5>
           <h6 class="btn btn-link">View Details</h6>
         </div>

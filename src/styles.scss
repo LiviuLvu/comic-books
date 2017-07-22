@@ -63,7 +63,6 @@ a.list-group-item:focus,
 a.list-group-item:hover,
 button.list-group-item:focus,
 button.list-group-item:hover {
-  color: #555;
   text-decoration: none;
   background-color: #f5f5f5;
   overflow: hidden;
@@ -81,6 +80,12 @@ li.list-group-item .modal-custom {
   top: 0;
   left: 0;
   background-color: #fff;
+}
+
+.list-group-item p {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #555;
 }
 
 @media screen and (min-width: 740px) {
@@ -120,3 +125,49 @@ li.list-group-item .modal-custom {
   text-decoration: none;
   cursor: pointer;
 }
+
+// spinner from http://tobiasahlin.com/spinkit/
+
+.spinner {
+  margin: 30px auto 30px;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #eee;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+// end of spinner

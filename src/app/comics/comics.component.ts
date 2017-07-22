@@ -40,16 +40,18 @@ import { ComicsService } from '../comics.service';
 })
 export class ComicsComponent implements OnInit {
   items: Observable<string[]>;
-  hideLiIndex: string = 'show';
   // animation variables
   switch_exp: string;
   triggerState: string;
+  loading: boolean = false;
 
   constructor(private comicsService: ComicsService) { }
 
   private searchTermStream = new Subject<string>();
 
-  search(term: string) { this.searchTermStream.next(term);
+  search(term: string) {
+    this.searchTermStream.next(term)
+    this.loading = true;
   }
 
   ngOnInit() {
@@ -57,6 +59,7 @@ export class ComicsComponent implements OnInit {
       .debounceTime(300)
       .distinctUntilChanged()
       .switchMap((term: string) => this.comicsService.search(term));
+    this.items.subscribe( () => this.loading = false );
   }
   // aimation functions
   stateChange = (i) => {
