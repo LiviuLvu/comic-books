@@ -7,8 +7,6 @@ Dependencies are managed with Yarn
 You can search and display data using API provided by MARVEL.  
 
 ## To Do:
-* Large preview when list element is clicked
-* Spinner loader / please wait, loading data message
 * Write tests
 
 ***  
