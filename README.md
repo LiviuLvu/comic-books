@@ -8,7 +8,6 @@ Dependencies are managed with Yarn
 [Live preview link](https://liviulvu.github.io/comic-books/)
 
 ## To Do:
-* Spinner loader / please wait, loading data message
 * Write tests
 
 ***  
